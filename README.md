@@ -214,7 +214,40 @@ export default {
 }
 ```
 
-4. index.vue から呼び出してみる
+4. store でポストデーターを読み込む。
+   `store/index.js`
+
+```
+import axios from 'axios'
+// state
+export const state = () => ({
+  posts: [],
+})
+// mutation
+export const mutations = {
+  setPosts(state, payload) {
+    state.posts = payload
+  },
+}
+// actions
+export const actions = {
+  async getPosts({ commit }) {
+    await axios
+      .get('https://h-works.microcms.io/api/v1/blog', {
+        headers: { 'X-API-KEY': process.env.API_KEY },
+      })
+      .then((res) => {
+        commit('setPosts', res.data.contents)
+        // console.log(res.data.contents)
+      })
+      .catch((err) => {
+        console.log(`Error! HTTP Status: ` + err)
+      })
+  },
+}
+```
+
+5. index.vue から呼び出してみる
    `pages/index.vue`
 
 ```
@@ -255,7 +288,7 @@ export default {
 </script>
 ```
 
-5. 単一記事の取得方法を Vuex の posts から取得するように変更します
+6. 単一記事の取得方法を Vuex の posts から取得するように変更します
    `pages/posts/_slug.vue`
 
 ```
@@ -324,7 +357,101 @@ export default {
 }
 ```
 
-6.
+6. Nuxt.js × Contentful】カテゴリー記事一覧ページを作成する
+   https://blog.cloud-acct.com/posts/blog-related-posts
+
+ポストからカテゴリーをすべて取得する。
+`pages/index.vue`
+
+```
+// mutation
+export const mutations = {
+
+  setLink(state, payload) {
+    state.stages = []
+    state.tags = []
+
+    payload.map((post) => {
+      const entory = post
+      // stage store
+      if (entory.stages) {
+        const dataStages = state.stages.find((stg) => {
+          return stg.id === entory.stages.id
+        })
+        if (!dataStages) {
+          // state.stages.push(post.stages)
+          state.stages.push(entory.stages)
+        }
+      }
+      // locations
+      if (entory.locations) {
+        const dataLocations = state.locations.find((loc) => {
+          return loc.id === entory.locations.id
+        })
+        if (!dataLocations) {
+          state.locations.push(entory.locations)
+        }
+      }
+      // tag store
+      if (entory.tags) {
+        entory.tags.map((tagsTag) => {
+          const dataTags = state.tags.find((tag) => {
+            return tag.id === tagsTag.id
+          })
+          if (!dataTags) {
+            state.tags.push(tagsTag)
+          }
+        })
+      }
+    })
+    state.stages.sort((a, b) => a.sort - b.sort)
+    state.tags.sort((a, b) => a.sort - b.sort)
+    state.locations.sort((a, b) => a.sort - b.sort)
+
+  },
+```
+
+カテゴリーを表示する
+`stages/index.vue `
+
+```
+<template lang="pug">
+div
+    div.mt-4
+        h1 stage index.vue
+    div.mt-4
+        div(v-for="stage in stages" :key="stage.id")
+            nuxt-link(:to="`/stages/${stage.id}`")
+                h3
+                    span.mr-2 {{stage.stageNo}}
+                    span.mr-2 {{stage.title}}
+                    span.mr-2 {{stage.id}}
+            div(v-for="post in posts" :key="post.id")
+                div.ml-4(v-if="stage.id === post.stages.id")
+                    nuxt-link(:to="`/posts/${post.id}`")
+                        h5
+                            span.mr-2 {{post.title}}
+                            span.mr-2 paost:{{post.id}}
+                            span.mr-2 stage:{{post.stages.id}}
+    div.mt-4
+        h3 {{stages}}
+    div.mt-4
+        h3 {{posts}}
+    div.mt-4
+        nuxt-link(to="/")
+            h3 Home
+</template>
+<script>
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState(['posts', 'stages']),
+  },
+}
+</script>
+
+```
+
 7.
 8.
 9.
