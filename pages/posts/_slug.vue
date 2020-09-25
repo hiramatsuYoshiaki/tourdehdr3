@@ -29,6 +29,7 @@ div
 <script>
 // import axios from 'axios'
 export default {
+  layout: 'fullscreenNav',
   async asyncData({ payload, store, params, error }) {
     const currentPost =
       payload ||

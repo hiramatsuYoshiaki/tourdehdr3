@@ -25,6 +25,7 @@ div
 <script>
 import { mapState } from 'vuex'
 export default {
+  layout: 'fullscreenNav',
   computed: {
     ...mapState(['tags', 'posts']),
   },

@@ -8,3 +8,8 @@ div
             h3 Home
         
 </template>
+<script>
+export default {
+  layout: 'fullscreenNav',
+}
+</script>
