@@ -9,7 +9,7 @@ div
                 h1 {{ location.locations}}
                 div(v-for="post in posts" :key="post.id")
                     div(v-if="location.id === post.locations.id")
-                        nuxt-link(:to="`/post/${post.id}`")
+                        nuxt-link(:to="`/posts/${post.id}`")
                             h3 
                                 span.mr-4 {{ post.title}}
                                 span.mr-4 {{ post.id}}

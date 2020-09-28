@@ -69,16 +69,26 @@ export default {
     // API_KEY,
     API_KEY: process.env.API_KEY,
   },
-  // privateRuntimeConfig: {
-  //   apiKey: API_KEY,
-  // },
+  router: {
+    middleware: ['getMicrocms'],
+  },
+  /*
+   ** generate
+   */
+  generate: {
+    routes: [
+      '/posts/7m0_qmvlo',
+      '/posts/z79ab_7lq',
+      '/posts/i1_okvsri',
+      '/posts/okzajyufv',
+      '/posts/dj_lorzdr',
+      '/posts/4wtoynx4v',
+    ],
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  router: {
-    middleware: ['getMicrocms'],
-  },
   axios: {},
   /*
    ** vuetify module configuration

@@ -492,6 +492,10 @@ export default {
 
 ```
 
+### Nuxt.js の generate プロパティに動的なルーティングを追加する
+
+https://blog.cloud-acct.com/posts/blog-nuxtjs-generate-routes
+
 # GitHub
 
 ## GitHub リポジトリの作成
