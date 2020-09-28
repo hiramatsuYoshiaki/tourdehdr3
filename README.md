@@ -582,3 +582,77 @@ export default {
    git commit -m "コメント"
    git push -u origin new-branch
 ```
+
+# ファイルをホスティングする
+
+https://microcms.io/blog/microcms-nuxt-jamstack-blog/
+
+ブログの機能としてはまだまだですが、一旦ホスティングまでやってしまいましょう。
+ホスティング先として今回は Netlify を利用します。
+Netlify を利用するためには GitHub 連携が必要なので、今までの作業内容を GitHub に push しましょう。
+まず、GitHub でリポジトリを作成します。
+PUSH します。
+Netlify にログインします。（未登録の方は Signup お願いします）
+new site from git ボタンからサイトを新規作成します。
+ビルドコマンド、デプロイ先は下記のように設定します。
+
+```
+Basic build settings
+
+Build Command: nuxt generete
+Publish directory: dist
+```
+
+以上で Netlify と GitHub が連携してビルドが開始されます。
+ビルドが完了したら、Netlify にホスティングされます。
+
+# microCMS と Netlify を連携する
+
+https://microcms.io/blog/microcms-nuxt-jamstack-blog/
+
+次は、microCMS のコンテンツを変更したら Netlify のビルドが走るようにします。
+API 設定 > Webhook から Netlify を選択します。
+追加ボタンを押す
+
+Netlify の Webhook を用意します。
+Netlify 側の Settings > Build & deploy > Build hooks から設定可能です。
+`Build hooks`
+
+```
+Build hooks
+
+build hooks name: micro CMS
+branch to build: master
+```
+
+save ボタンを押す
+`Build hooks`
+
+```
+Build hooks
+
+micro CMS: https//api.netlify.com/build_hooks/abcdefg123456789
+```
+
+作成するとエンドポイントが割り当てられます。
+
+これを microCMS 側の Webhook 設定に入力し保存します。
+`api設定`
+
+```
+Webhook
+Netlify
+
+NetlifyのBuild hooks設定で取得できるURLを入力してください。コンテンツの更新をトリガーとしてPOSTリクエストを送信します。
+https//api.netlify.com/build_hooks/abcdefg123456789
+通知をするタイミングを設定してください。
+*コンテンツの公開時
+ コンテンツの下書き保存時
+*コンテンツの削除時
+ APIの設定変更時
+ APIの削除時
+```
+
+以上で連携完了になります。
+microCMS 側でコンテンツを作成して、Netlify に反映されるか試してみましょう。
+反映されれば Jamstack 構成の完成です！
