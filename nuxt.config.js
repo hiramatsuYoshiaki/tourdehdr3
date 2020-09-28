@@ -1,6 +1,7 @@
 require('dotenv').config()
 // const { API_KEY } = process.env
 import colors from 'vuetify/es5/util/colors'
+import axios from 'axios'
 export default {
   /*
    ** Nuxt rendering mode
@@ -75,16 +76,51 @@ export default {
   /*
    ** generate
    */
+  // generate: {
+  //   routes: [
+  //     '/posts/7m0_qmvlo',
+  //     '/posts/z79ab_7lq',
+  //     '/posts/i1_okvsri',
+  //     '/posts/okzajyufv',
+  //     '/posts/dj_lorzdr',
+  //     '/posts/4wtoynx4v',
+  //   ],
+  // },
   generate: {
-    routes: [
-      '/posts/7m0_qmvlo',
-      '/posts/z79ab_7lq',
-      '/posts/i1_okvsri',
-      '/posts/okzajyufv',
-      '/posts/dj_lorzdr',
-      '/posts/4wtoynx4v',
-    ],
+    routes() {
+      return axios
+        .get('https://h-works.microcms.io/api/v1/blog', {
+          headers: { 'X-API-KEY': process.env.API_KEY },
+        })
+        .then((res) => {
+          return res.data.contents.map((post) => {
+            return { route: `/posts/${post.id}` }
+          })
+        })
+        .catch((err) => {
+          console.log(`Error! HTTP Status: ` + err)
+        })
+    },
   },
+
+  // actions
+  // export const actions = {
+  //   async getPosts({ commit }) {
+  //     await axios
+  //       .get('https://h-works.microcms.io/api/v1/blog', {
+  //         headers: { 'X-API-KEY': process.env.API_KEY },
+  //       })
+  //       .then((res) => {
+  //         commit('setPosts', res.data.contents)
+  //         commit('setLink', res.data.contents)
+  //         // console.log(res.data.contents)
+  //       })
+  //       .catch((err) => {
+  //         console.log(`Error! HTTP Status: ` + err)
+  //       })
+  //   },
+  // }
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
