@@ -43,7 +43,9 @@
 
         v-app-bar(app) 
             v-app-bar-nav-icon(@click.stop="drawer = !drawer") 
-            v-toolbar-title TOURdeHDR+3  
+            v-toolbar-title 
+                nuxt-link(to="/")
+                    span TOURdeHDR+3  
             v-spacer 
             //- v-btn(v-for="(item, i) in items"
             //-         :key="i"

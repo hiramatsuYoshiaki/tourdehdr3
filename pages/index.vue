@@ -6,7 +6,7 @@
       v-carousel(
         cycle
         width="100%"
-        height="400"
+        height="600"
         hide-delimiter-background
         hide-delimiters
         show-arrows
@@ -19,7 +19,9 @@
           reverse-transition="fade-transition"
           transition="fade-transition"
         )
-    div 
+    div.mt-4 
+      h1 Post Time Line
+    //- v-timeline(dense)
     v-timeline
       v-timeline-item(
         v-for="(post, i) in posts"
@@ -43,94 +45,97 @@
           div(v-for="tag in post.tags" :key="tag.id")
                 span.mr-4 {{tag.tags}}
           img(:src="post.image.url" width="300" height="200" alt="画像" ) 
+          div 
+            nuxt-link(:to="`/posts/${post.id}`")
+              h3 この投稿をみる 
     v-divider
-    div 
-      h1 crousel 1
-    div 
-      v-carousel(
-        cycle
-        height="400"
-        hide-delimiter-background
-        show-arrows-on-hover
-      )
-        v-carousel-item(
-          v-for="(item, i) in items"
-          :key="i"
-          :src="item.src"
-          reverse-transition="fade-transition"
-          transition="fade-transition"
-        )
-    v-divider
-    div 
-      h1 crousel 2
-    div 
-      v-carousel(
-        cycle
-        height="400"
-        hide-delimiter-background
-        show-arrows-on-hover
-      )
-        v-carousel-item(
-          v-for="(slide, i) in slides"
-          :key="i"
-        )
-          v-sheet(
-            :color="colors[i]"
-            height="100%"
-          )
-            v-row(
-              class="fill-height"
-              align="center"
-              justify="center"
-            )
-              div.display-3 {{ slide }} Slide
-    v-divider
-    div 
-      h1 Time Line 
-    div 
-      v-timeline
-        v-timeline-item(
-          v-for="(year, i) in years"
-          :key="i"
-          :color="year.color"
-          small
-        )
-          template(v-slot:opposite)
-            span(
-                :class="`headline font-weight-bold ${year.color}--text`"
-                v-text="year.year"
-              )
-          div.py-4
-            h2( :class="`headline font-weight-light mb-4 ${year.color}--text`") Lorem ipsum
-            div Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
-    v-divider
-    div 
-      h1 micro CMS Blog Test
-    div 
-      nuxt-link(to="/stages")
-        h1 stages index
-    div 
-      nuxt-link(to="/tags")
-        h1 tags index
-    div 
-      nuxt-link(to="/locations")
-        h1 locations index
-    div 
-      h3 Blog list 
-      ul 
-        li(v-for="post in posts" :key="post.id") 
-            nuxt-link( :to="`/posts/${post.id}`")
-              h1 {{ post.title}}
-            div
-              h3 {{ post.body}}
-              h3 {{ post.link}}
-              h3 {{ post.users.name}}
-              h3 {{ post.locations.locations}}
-              h3 {{ post.stages.stage}}
-              h3 {{ post.stages.title}}
-              div(v-for="tag in post.tags" :key="tag.id")
-                span.mr-4 {{tag.tags}}
-              img(:src="post.image.url" width="300" height="200" alt="画像" ) 
+    //- div 
+    //-   h1 crousel 1
+    //- div 
+    //-   v-carousel(
+    //-     cycle
+    //-     height="400"
+    //-     hide-delimiter-background
+    //-     show-arrows-on-hover
+    //-   )
+    //-     v-carousel-item(
+    //-       v-for="(item, i) in items"
+    //-       :key="i"
+    //-       :src="item.src"
+    //-       reverse-transition="fade-transition"
+    //-       transition="fade-transition"
+    //-     )
+    //- v-divider
+    //- div 
+    //-   h1 crousel 2
+    //- div 
+    //-   v-carousel(
+    //-     cycle
+    //-     height="400"
+    //-     hide-delimiter-background
+    //-     show-arrows-on-hover
+    //-   )
+    //-     v-carousel-item(
+    //-       v-for="(slide, i) in slides"
+    //-       :key="i"
+    //-     )
+    //-       v-sheet(
+    //-         :color="colors[i]"
+    //-         height="100%"
+    //-       )
+    //-         v-row(
+    //-           class="fill-height"
+    //-           align="center"
+    //-           justify="center"
+    //-         )
+    //-           div.display-3 {{ slide }} Slide
+    //- v-divider
+    //- div 
+    //-   h1 Time Line 
+    //- div 
+    //-   v-timeline
+    //-     v-timeline-item(
+    //-       v-for="(year, i) in years"
+    //-       :key="i"
+    //-       :color="year.color"
+    //-       small
+    //-     )
+    //-       template(v-slot:opposite)
+    //-         span(
+    //-             :class="`headline font-weight-bold ${year.color}--text`"
+    //-             v-text="year.year"
+    //-           )
+    //-       div.py-4
+    //-         h2( :class="`headline font-weight-light mb-4 ${year.color}--text`") Lorem ipsum
+    //-         div Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
+    //- v-divider
+    //- div.mt-8 
+    //-   h1 micro CMS Blog Test
+    //- div 
+    //-   nuxt-link(to="/stages")
+    //-     h1 stages index
+    //- div 
+    //-   nuxt-link(to="/tags")
+    //-     h1 tags index
+    //- div 
+    //-   nuxt-link(to="/locations")
+    //-     h1 locations index
+    //- div 
+    //-   h3 Blog list 
+    //-   ul 
+    //-     li(v-for="post in posts" :key="post.id") 
+    //-         nuxt-link( :to="`/posts/${post.id}`")
+    //-           h1 {{ post.title}}
+    //-         div
+    //-           h3 {{ post.body}}
+    //-           h3 {{ post.link}}
+    //-           h3 {{ post.users.name}}
+    //-           h3 {{ post.locations.locations}}
+    //-           h3 {{ post.stages.stage}}
+    //-           h3 {{ post.stages.title}}
+    //-           div(v-for="tag in post.tags" :key="tag.id")
+    //-             span.mr-4 {{tag.tags}}
+    //-           img(:src="post.image.url" width="300" height="200" alt="画像" ) 
       //- div.mt-8 {{posts}}
     
 </template>
