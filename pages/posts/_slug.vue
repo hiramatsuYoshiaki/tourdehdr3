@@ -32,13 +32,13 @@ div
 export default {
   layout: 'fullscreenNav',
   async asyncData({ payload, store, params, error }) {
-    console.log('Payload------------')
-    console.log({ post: payload })
+    // console.log('Payload------------')
+    // console.log( payload )
     const currentPost =
       payload ||
       (await store.state.posts.find((post) => post.id === params.slug))
-    console.log('currentPost------------')
-    console.log(currentPost)
+    // console.log('currentPost------------')
+    // console.log(currentPost)
     if (currentPost) {
       return { contents: currentPost }
     } else {
