@@ -167,50 +167,50 @@ export default {
     return {
       contents: [],
       // curousel test
-      colors: [
-        'indigo',
-        'warning',
-        'pink darken-2',
-        'red lighten-1',
-        'deep-purple accent-4',
-      ],
-      slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth'],
-      years: [
-        {
-          color: 'cyan',
-          year: '1960',
-        },
-        {
-          color: 'green',
-          year: '1970',
-        },
-        {
-          color: 'pink',
-          year: '1980',
-        },
-        {
-          color: 'amber',
-          year: '1990',
-        },
-        {
-          color: 'orange',
-          year: '2000',
-        },
-      ],
-      items: [
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-        },
-      ],
+      // colors: [
+      //   'indigo',
+      //   'warning',
+      //   'pink darken-2',
+      //   'red lighten-1',
+      //   'deep-purple accent-4',
+      // ],
+      // slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth'],
+      // years: [
+      //   {
+      //     color: 'cyan',
+      //     year: '1960',
+      //   },
+      //   {
+      //     color: 'green',
+      //     year: '1970',
+      //   },
+      //   {
+      //     color: 'pink',
+      //     year: '1980',
+      //   },
+      //   {
+      //     color: 'amber',
+      //     year: '1990',
+      //   },
+      //   {
+      //     color: 'orange',
+      //     year: '2000',
+      //   },
+      // ],
+      // items: [
+      //   {
+      //     src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+      //   },
+      //   {
+      //     src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+      //   },
+      //   {
+      //     src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+      //   },
+      //   {
+      //     src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+      //   },
+      // ],
     }
   },
   computed: {
