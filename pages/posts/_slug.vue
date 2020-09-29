@@ -1,5 +1,6 @@
 <template lang="pug">
 div 
+    h1 TOURdeHDR3 Micro CMS POSTS
     h1 posts/_slug.vue 
     h3 param: {{ $route.params.slug }}
     div.mt-4
@@ -31,9 +32,13 @@ div
 export default {
   layout: 'fullscreenNav',
   async asyncData({ payload, store, params, error }) {
+    console.log('Payload------------')
+    console.log({ post: payload })
     const currentPost =
       payload ||
       (await store.state.posts.find((post) => post.id === params.slug))
+    console.log('currentPost------------')
+    console.log(currentPost)
     if (currentPost) {
       return { contents: currentPost }
     } else {

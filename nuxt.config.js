@@ -76,16 +76,6 @@ export default {
   /*
    ** generate
    */
-  // generate: {
-  //   routes: [
-  //     '/posts/7m0_qmvlo',
-  //     '/posts/z79ab_7lq',
-  //     '/posts/i1_okvsri',
-  //     '/posts/okzajyufv',
-  //     '/posts/dj_lorzdr',
-  //     '/posts/4wtoynx4v',
-  //   ],
-  // },
   generate: {
     routes() {
       return axios
@@ -94,7 +84,10 @@ export default {
         })
         .then((res) => {
           return res.data.contents.map((post) => {
-            return { route: `/posts/${post.id}` }
+            return {
+              route: `/posts/${post.id}`,
+              payload: post,
+            }
           })
         })
         .catch((err) => {
@@ -102,25 +95,6 @@ export default {
         })
     },
   },
-
-  // actions
-  // export const actions = {
-  //   async getPosts({ commit }) {
-  //     await axios
-  //       .get('https://h-works.microcms.io/api/v1/blog', {
-  //         headers: { 'X-API-KEY': process.env.API_KEY },
-  //       })
-  //       .then((res) => {
-  //         commit('setPosts', res.data.contents)
-  //         commit('setLink', res.data.contents)
-  //         // console.log(res.data.contents)
-  //       })
-  //       .catch((err) => {
-  //         console.log(`Error! HTTP Status: ` + err)
-  //       })
-  //   },
-  // }
-
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
