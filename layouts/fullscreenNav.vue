@@ -1,47 +1,73 @@
-<template lang="pug"> 
-    v-app(id="baseline")
-        v-navigation-drawer(v-model="drawer" app   bottom stateless width="100%" ) 
-            v-list(dense).mr-8 
-                v-list-item(
-                    v-for="(item, i) in items"
-                    :key="i"
-                    :to="item.to"
-                    router
-                    exact
-                    @click.stop="drawer = !drawer"
-                )
-                    v-list-item-action
-                        v-icon {{ item.icon }}
-                    v-list-item-content
-                        v-list-item-title   {{ item.title }}
-               
-            div.closeBtn(@click.stop="drawer = !drawer") 
-                v-icon mdi-close-thick
+<template lang="pug">
+v-app#baseline
+  v-navigation-drawer.d-flex.justify-sm-center.align-sm-center.pa-8(
+    v-model='drawer',
+    app,
+    bottom,
+    stateless,
+    width='100vw',
+    height='100vh'
+  ) 
+    v-list.d-flex.flex-column.justify-center.align-center(
+      light,
+      dense,
+      width='30rem',
+      height='50rem',
+      text
+    ) 
+      v-list-item.listItems(
+        v-for='(item, i) in items',
+        :key='i',
+        :to='item.to',
+        router,
+        exact,
+        @click.stop='drawer = !drawer'
+      )
+        v-list-item-action.pl-8.pr-2
+          v-icon(large) {{ item.icon }}
+        v-list-item-content
+          v-list-item-title 
+            h1.text-h4 {{ item.title }}
 
-        v-app-bar(app) 
-            v-app-bar-nav-icon(@click.stop="drawer = !drawer") 
-            v-toolbar-title 
-                nuxt-link(to="/")
-                    span TOURdeHDR+3  
-            v-spacer 
-            div.d-none.d-sm-flex
-                v-btn(v-for="(item, i) in items"
-                            :key="i"
-                            :to="item.to"
-                            router
-                            exact
-                            text
-                    )
-                        //- v-icon {{ item.icon }}
-                        span {{ item.title }}
+    .closeBtn(@click.stop='drawer = !drawer') 
+      v-icon mdi-close-thick
 
-        v-main
-            nuxt 
-        v-footer(app)
-            v-toolbar-title 
-                span TOURdeHDR+3   
-                span &copy; {{ new Date().getFullYear() }} 
-        //- v-bottom-navigation(app) bottom-navigation
+  v-app-bar(app) 
+    v-app-bar-nav-icon(@click.stop='drawer = !drawer') 
+    v-toolbar-title 
+      nuxt-link(to='/')
+        h2 TOURdeHDR+3
+    v-spacer 
+    .d-none.d-sm-flex
+      v-btn(
+        v-for='(item, i) in items',
+        :key='i',
+        :to='item.to',
+        router,
+        exact,
+        text
+      )
+        v-icon.d-none.d-lg-block.mr-1 {{ item.icon }}
+        span {{ item.title }}
+
+  v-main
+    nuxt 
+  v-footer(app, width='100vw')
+    //- v-toolbar-title.d-flex.justify-center.align-center
+    v-toolbar-title.footerTitle.pa-4.d-flex.justify-center.align-center
+      //- span TOURdeHDR+3
+      img.d-block.mr-4(
+        src='~assets/img/logo/h-logo.svg',
+        alt='h-works',
+        height='28'
+      )
+      img.mr-4.d-none.d-md-block(
+        src='~/assets/img/logo/h-works1200x600black.svg',
+        alt='h-works logo',
+        height='28'
+      )
+      .mr-4.mt-2 &copy; {{ new Date().getFullYear() }}
+  //- v-bottom-navigation(app) bottom-navigation
 </template>
 <script>
 export default {
@@ -51,8 +77,8 @@ export default {
       toggle_exclusive: undefined,
       items: [
         {
-          icon: 'mdi-hdr',
-          title: 'TOP',
+          icon: 'mdi-new-box',
+          title: 'NEW',
           to: '/',
         },
         {
@@ -100,5 +126,15 @@ html {
   top: 0rem;
   right: 0rem;
   margin: 1rem 1rem;
+}
+
+.listItems {
+  // border: 1px solid darkblue;
+  width: 28rem;
+  padding: 0;
+  margin: 0;
+}
+.footerTitle {
+  width: 100vw;
 }
 </style>
