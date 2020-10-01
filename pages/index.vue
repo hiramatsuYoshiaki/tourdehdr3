@@ -4,25 +4,25 @@ v-container.grey.lighten-5
   section.SC1 
     h1 section1
 
-  //- v-carousel(
-  //-   cycle,
-  //-   width='100%',
-  //-   height='600',
-  //-   hide-delimiter-background,
-  //-   hide-delimiters,
-  //-   show-arrows,
-  //-   show-arrows-on-hover
-  //- )
-  //-   v-carousel-item(
-  //-     v-for='(post, i) in posts',
-  //-     :key='i',
-  //-     :src='post.image.url',
-  //-     reverse-transition='fade-transition',
-  //-     transition='fade-transition'
-  //-   )
-  //- .mt-8 
-  //-   h1 Post Time Line
+  v-carousel(
+    cycle,
+    width='100%',
+    height='600',
+    hide-delimiter-background,
+    hide-delimiters,
+    show-arrows,
+    show-arrows-on-hover
+  )
+    v-carousel-item(
+      v-for='(post, i) in posts',
+      :key='i',
+      :src='post.image.url',
+      reverse-transition='fade-transition',
+      transition='fade-transition'
+    )
+  .mt-8 
 
+  //-   h1 Post Time Line
   //- v-timeline(dense)
   //- v-timeline
   //-   v-timeline-item(v-for='(post, i) in posts', :key='i', small)
