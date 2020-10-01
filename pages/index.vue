@@ -1,26 +1,25 @@
 <template lang="pug">
 //- v-container.red.lighten-5 
 v-container.grey.lighten-5 
-  section.SC1 
+  section.BD
     h1 section1
-
-  v-carousel(
-    cycle,
-    width='100%',
-    height='600',
-    hide-delimiter-background,
-    hide-delimiters,
-    show-arrows,
-    show-arrows-on-hover
-  )
-    v-carousel-item(
-      v-for='(post, i) in posts',
-      :key='i',
-      :src='post.image.url',
-      reverse-transition='fade-transition',
-      transition='fade-transition'
-    )
-  .mt-8 
+  //- v-carousel(
+  //-   cycle,
+  //-   width='100%',
+  //-   height='600',
+  //-   hide-delimiter-background,
+  //-   hide-delimiters,
+  //-   show-arrows,
+  //-   show-arrows-on-hover
+  //- )
+  //-   v-carousel-item(
+  //-     v-for='(post, i) in posts',
+  //-     :key='i',
+  //-     :src='post.image.url',
+  //-     reverse-transition='fade-transition',
+  //-     transition='fade-transition'
+  //-   )
+  //- .mt-8 
 
   //-   h1 Post Time Line
   //- v-timeline(dense)
@@ -91,5 +90,8 @@ export default {
   width: 100vw;
   height: 200px;
   background-color: darkcyan;
+}
+.BD {
+  border: 1px solid red;
 }
 </style>
