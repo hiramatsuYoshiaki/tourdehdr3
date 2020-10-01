@@ -11,6 +11,11 @@ export const mutations = {
   setPosts(state, payload) {
     state.posts = payload
   },
+  cg(state, payload) {
+    console.log(payload)
+    console.log(state.posts[payload].isShow)
+    state.posts[payload].isShow = !state.posts[payload].isShow
+  },
   setLink(state, payload) {
     state.stages = []
     state.tags = []

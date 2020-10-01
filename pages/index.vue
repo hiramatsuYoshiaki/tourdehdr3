@@ -37,7 +37,6 @@ v-container.grey.lighten-5
             nuxt-link(:to='`/posts/${post.id}`')
               v-img(
                 :src='post.image.url',
-                ,
                 width='100%',
                 height='auto',
                 :alt='post.title'
@@ -55,10 +54,10 @@ v-container.grey.lighten-5
             v-card-actions
               v-btn(color='orange lighten-2', text) Detail
               v-spacer
-              v-btn(icon, @click='show = !show')
+              v-btn(icon, @click='sw(i)')
                 v-icon {{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}
             v-expand-transition
-              .grey.lighten-4(v-show='show')
+              .grey.lighten-4(v-show='post.isShow')
                 v-divider
                 v-card-title
                   span {{ post.title }}
@@ -126,6 +125,11 @@ export default {
   },
   computed: {
     ...mapState(['posts']),
+  },
+  methods: {
+    sw(idx) {
+      this.$store.commit('cg', idx)
+    },
   },
 }
 </script>
