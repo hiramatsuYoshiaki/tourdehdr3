@@ -1,7 +1,7 @@
 <template lang="pug">
 //- v-container.grey.lighten-5(fluid) 
 v-container.grey.lighten-5
-  //- section.sl-wraper
+  //- section.ly_section_wrapper
   //-   v-carousel(
   //-     cycle,
   //-     width='100%',
@@ -19,7 +19,7 @@ v-container.grey.lighten-5
   //-       transition='fade-transition'
   //-     )
   //-   .mt-8 
-  section.sl-wraper
+  section.ly_section_wrapper
     h1.text-h3.my-2 Time Line
     v-timeline(dense, align-top)
       v-timeline-item(v-for='(post, i) in posts', :key='i', small)
@@ -30,9 +30,9 @@ v-container.grey.lighten-5
           //- )
           //- span(:class='`headline font-weight-bold white`') {{ i + 1 }}
         .py-1
-          h1(:class='`headline font-weight-light mb-4 `') {{ post.stages.stageNo }}
+          h2.text-h5(:class='`headline font-weight-light mb-4 `') {{ post.stages.stageNo }}
           nuxt-link(:to='`/posts/${post.id}`')
-            h2(:class='`headline font-weight-light mb-4 `') {{ post.title }}
+            h1.text-h3(:class='`headline font-weight-light mb-4 `') {{ post.title }}
           v-card(flat, max-width='600')
             nuxt-link(:to='`/posts/${post.id}`')
               v-img(
@@ -47,12 +47,13 @@ v-container.grey.lighten-5
             //-   span {{ post.stages.stageNo }}
             v-card-text.d-flex 
               nuxt-link(:to='`/locations/${post.locations.locations}`')
-                span.mr-4 {{ post.locations.locations }}
+                span.text-h5.mr-4 {{ post.locations.locations }}
               span(v-for='tag in post.tags', :key='tag.id')
                 nuxt-link(:to='`/tags/${tag.tags}`')
-                  span.mr-4 {{ tag.tags }}
-            v-card-actions
-              v-btn(color='orange lighten-2', text) Detail
+                  span.text-h5.mr-4 {{ tag.tags }}
+            v-card-actions.grey.lighten-4
+              v-btn(color='orange lighten-2', text) 
+                h5.text-h5 Detail
               v-spacer
               v-btn(icon, @click='sw(i)')
                 v-icon {{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}
@@ -133,38 +134,4 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-// * {
-//   border: 1px solid lightgrey;
-// }
-
-.sl-wraper {
-  // border: 1px solid red;
-  width: 100%;
-  overflow: hidden;
-}
-// .im-wrape {
-//   margin-right: 30px;
-//   @media (min-width: 600px) {
-//     margin-right: 0;
-//   }
-// }
-// .postBody {
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-// }
-// .bodyArea {
-//   width: 100%;
-//   overflow: hidden;
-// }
-// .bodyInner {
-//   margin-right: auto;
-//   margin-left: 0;
-//   @media (min-width: 600px) {
-//     min-width: 400px;
-//     margin-right: auto;
-//     margin-left: auto;
-//   }
-// }
-</style>
+<style lang="scss" scoped></style>

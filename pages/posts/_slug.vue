@@ -5,14 +5,14 @@ v-container.grey.darken-4(fluid)
   //-   h1 TOURdeHDR3 Micro CMS POSTS
   //-   h1 posts/_slug.vue
   //-   h3 param: {{ $route.params.slug }}
-  section.sl-wraper.mb-4.mt-8
+  section.ly_section_wrapper.mb-4.mt-8
     v-card.mx-auto(flat, max-width='600', dark) 
       v-img(
         :src='contents.image.url',
         width='100%',
         height='auto',
         :alt='contents.title'
-      )
+      ) 
       v-card-title
         span {{ contents.stages.title }}
       v-card-subtitle 
