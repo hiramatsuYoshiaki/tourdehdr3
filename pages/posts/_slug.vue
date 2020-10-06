@@ -21,7 +21,7 @@ v-container.grey.darken-4(fluid)
         nuxt-link(:to='`/locations/${contents.locations.locations}`')
           span.mr-4 {{ contents.locations.locations }}
         span(v-for='tag in contents.tags', :key='tag.id')
-          nuxt-link(:to='`/tags/${tag.tags}`')
+          nuxt-link(:to='`/tags/${tag.id}`')
             span.mr-4 {{ tag.tags }}
       v-card-text
         span {{ contents.body }}

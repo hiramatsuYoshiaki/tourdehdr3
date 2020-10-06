@@ -1,11 +1,7 @@
 <template lang="pug">
-v-container.grey.lighten-5
-  //- section.ly_content_wrapper.mb-4 
-  //-   h1 post index header
-  //-   h1 posts/index
-
-  section.ly_content_wrapper.mb-4 
-    v-list 
+v-container.grey.lighten-4
+  section.ly_content_wrapper.mb-4
+    v-list.grey.lighten-4 
       v-subheader 
         h1.text-h3 Post List
       v-list-item.py-2.d-flex.align-start(

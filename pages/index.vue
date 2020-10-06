@@ -19,7 +19,7 @@ v-container.grey.lighten-5
   //-       transition='fade-transition'
   //-     )
   //-   .mt-8 
-  section.ly_section_wrapper
+  section.ly_section_wrapper 
     h1.text-h3.my-2 Time Line
     v-timeline(dense, align-top)
       v-timeline-item(v-for='(post, i) in posts', :key='i', small)
@@ -30,7 +30,8 @@ v-container.grey.lighten-5
           //- )
           //- span(:class='`headline font-weight-bold white`') {{ i + 1 }}
         .py-1
-          h2.text-h5(:class='`headline font-weight-light mb-4 `') {{ post.stages.stageNo }}
+          h2.text-h4(:class='`headline font-weight-light mb-4 `') {{ post.stages.stageNo }}
+            span.text-h5.ml-1 {{ post.stages.year }}
           nuxt-link(:to='`/posts/${post.id}`')
             h1.text-h3(:class='`headline font-weight-light mb-4 `') {{ post.title }}
           v-card(flat, max-width='600')
@@ -45,12 +46,13 @@ v-container.grey.lighten-5
             //-   span {{ post.locations.locations }}
             //- v-card-subtitle 
             //-   span {{ post.stages.stageNo }}
-            v-card-text.d-flex 
+            v-card-text
               nuxt-link(:to='`/locations/${post.locations.locations}`')
-                span.text-h5.mr-4 {{ post.locations.locations }}
-              span(v-for='tag in post.tags', :key='tag.id')
-                nuxt-link(:to='`/tags/${tag.tags}`')
-                  span.text-h5.mr-4 {{ tag.tags }}
+                h5.text-h5.mr-4 {{ post.locations.locations }}
+              div
+                span(v-for='tag in post.tags', :key='tag.id')
+                  nuxt-link(:to='`/tags/${tag.id}`')
+                    span.text-h5.mr-4 {{ tag.tags }}
             v-card-actions.grey.lighten-4
               v-btn(color='orange lighten-2', text) 
                 h5.text-h5 Detail

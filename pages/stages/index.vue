@@ -1,35 +1,25 @@
 <template lang="pug">
-div
-    div.mt-4
-        h1 stage index.vue
-    div.mt-4 
-        div(v-for="stage in stages" :key="stage.id")
-            nuxt-link(:to="`/stages/${stage.id}`")
-                h3 
-                    span.mr-2 {{stage.stageNo}}
-                    span.mr-2 {{stage.title}}
-                    span.mr-2 {{stage.id}}
-            div(v-for="post in posts" :key="post.id")
-                div.ml-4(v-if="stage.id === post.stages.id")
-                    nuxt-link(:to="`/posts/${post.id}`")
-                        h5 
-                            span.mr-2 {{post.title}}
-                            span.mr-2 paost:{{post.id}}
-                            span.mr-2 stage:{{post.stages.id}}
-    div.mt-4
-        h3 {{stages}}
-    div.mt-4
-        h3 {{posts}}
-    div.mt-4 
-        nuxt-link(to="/")
-            h3 Home
+v-container.grey.lighten-4
+  section.ly_content_wrapper.mb-4 
+  v-list.grey.lighten-4 
+    v-subheader 
+      h1.text-h3 Stage List
+    v-list-item(v-for='stage in stages', :key='stage.id') 
+      v-list-item-title 
+        nuxt-link(:to='`/stages/${stage.id}`') 
+          span.text-h3.mr-2 {{ stage.year }}
+          span.text-h3.mr-2 {{ stage.stageNo }}
+          span.text-h5.mr-2 {{ stage.title }}
+  .mt-4 
+    nuxt-link(to='/')
+      h3 Home
 </template>
 <script>
 import { mapState } from 'vuex'
 export default {
   layout: 'fullscreenNav',
   computed: {
-    ...mapState(['posts', 'stages']),
+    ...mapState(['posts', 'stages', 'tags']),
   },
 }
 </script>
