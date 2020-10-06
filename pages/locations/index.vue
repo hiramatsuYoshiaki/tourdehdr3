@@ -38,7 +38,7 @@ v-container.grey.lighten-4
                   ) {{ post.title }}
               v-list-action-text.d-flex 
                 span(v-for='tag in post.tags', :key='tag.id')
-                  nuxt-link(:to='`/tags/${tag.tags}`')
+                  nuxt-link(:to='`/tags/${tag.id}`')
                     span.text-h6.mr-4 {{ tag.tags }}
 
     .mt-4(@click='$router.go(-1)') 

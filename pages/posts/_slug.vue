@@ -18,7 +18,7 @@ v-container.grey.darken-4(fluid)
       v-card-subtitle 
         span {{ contents.stages.stageNo }}
       v-card-text.d-flex 
-        nuxt-link(:to='`/locations/${contents.locations.locations}`')
+        nuxt-link(:to='`/locations/${contents.locations.id}`')
           span.mr-4 {{ contents.locations.locations }}
         span(v-for='tag in contents.tags', :key='tag.id')
           nuxt-link(:to='`/tags/${tag.id}`')

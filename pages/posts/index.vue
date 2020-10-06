@@ -26,10 +26,10 @@ v-container.grey.lighten-4
                 :class='`headline font-weight-light mb-4 `'
               ) {{ post.title }}
           v-list-action-text.d-flex 
-            nuxt-link(:to='`/locations/${post.locations.locations}`')
+            nuxt-link(:to='`/locations/${post.locations.id}`')
               span.text-h6.mr-4 {{ post.locations.locations }}
             span(v-for='tag in post.tags', :key='tag.id')
-              nuxt-link(:to='`/tags/${tag.tags}`')
+              nuxt-link(:to='`/tags/${tag.id}`')
                 span.text-h6.mr-4 {{ tag.tags }}
 
           v-spacer

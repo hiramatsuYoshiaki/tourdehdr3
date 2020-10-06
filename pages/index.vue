@@ -47,7 +47,7 @@ v-container.grey.lighten-5
             //- v-card-subtitle 
             //-   span {{ post.stages.stageNo }}
             v-card-text
-              nuxt-link(:to='`/locations/${post.locations.locations}`')
+              nuxt-link(:to='`/locations/${post.locations.id}`')
                 h5.text-h5.mr-4 {{ post.locations.locations }}
               div
                 span(v-for='tag in post.tags', :key='tag.id')
