@@ -57,7 +57,6 @@ export const mutations = {
         })
       }
     })
-    // state.stages.sort((a, b) => b.sort - a.sort)
     state.stages.sort((a, b) => {
       // 昇順
       // if (a.sort < b.sort) return -1
@@ -68,7 +67,6 @@ export const mutations = {
       if (a.sort < b.sort) return 1
       return 0
     })
-
     // state.tags.sort((a, b) => a.sort - b.sort)
     state.locations.sort((a, b) => {
       if (a.code > b.code) return -1
@@ -76,54 +74,13 @@ export const mutations = {
       return 0
     })
 
-    // state.posts.sort((a, b) => a.sort - b.sort)
     state.posts.sort((a, b) => {
-      if (a.year > b.year) return -1
-      if (a.year < b.year) return 1
-      if (a.stageNo > b.stageNo) return -1
-      if (a.stageNo < b.stageNo) return 1
-      if (a.no > b.no) return -1
-      if (a.no < b.no) return 1
+      if (a.stages.sort > b.stages.sort) return -1
+      if (a.stages.sort < b.stages.sort) return 1
+      if (a.postNo > b.postNo) return -1
+      if (a.postNo < b.postNo) return 1
       return 0
     })
-    // 昇順 year/stageNo
-    // state.posts.sort((a, b) =>{
-    //   if (a.year < b.year) return -1
-    //   if (a.year > b.year) return 1
-    //   if (a.stageNo < b.stageNo) return -1
-    //   if (a.stageNo > b.stageNo) return 1
-    //   return 0
-    // })
-
-    // for (let i = 0; i < payload.length; i++) {
-    //   const entory = payload[i]
-    //   if (entory.stages) {
-    //     const data = state.stages.find((a) => {
-    //       return a.id === entory.stages.id
-    //     })
-    //     if (!data) {
-    //       state.stages.push(payload[i].stages)
-    //     }
-    //   }
-    // }
-    // state.stages.sort((a, b) => a.sort - b.sort)
-
-    // for (let i = 0; i < payload.length; i++) {
-    //   const entory = payload[i]
-    //   if (entory.stages) {
-    //     const data = state.stages.find((a) => {
-    //       return a.id === entory.stages.id
-    //     })
-    //     if (!data) {
-    //       state.stages.push(payload[i].stages)
-    //     }
-    //   }
-    // }
-    // state.stages.sort((a, b) => a.sort - b.sort)
-
-    // console.log(state.stages)
-    // console.log(payload[0].locations)
-    // console.log(state.tags)
   },
 }
 // actions

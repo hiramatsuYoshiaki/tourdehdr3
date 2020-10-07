@@ -7,10 +7,10 @@ v-container.grey.lighten-4
     v-list-item(v-for='stage in stages', :key='stage.id') 
       v-list-item-title 
         nuxt-link(:to='`/stages/${stage.id}`') 
-          span.text-h3.mr-2 {{ stage.year }}
-          span.text-h3.mr-2 {{ stage.stageNo }}
+          span.text-h5.mr-2 {{ stage.year }}
+          span.text-h5.mr-2 {{ stage.stageNo }}
           span.text-h5.mr-2 {{ stage.title }}
-          span.text-h5.mr-2 {{ stage.sort }}
+
   .mt-4 
     nuxt-link(to='/')
       h3 Home

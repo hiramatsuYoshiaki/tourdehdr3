@@ -23,12 +23,12 @@ v-container.grey.lighten-4
               )
         v-list-item-content.ml-4
           v-list-item-title
-            nuxt-link(:to='`/posts/${post.id}`') {{ post.title }}
+            nuxt-link(:to='`/posts/${post.id}`')
           v-list-item-subtitle 
             h2.text-h5 {{ post.stages.stageNo }}
+              span.ml-2 No.
+              span.text-h5 {{ post.postNo }}
               span.text-h5.ml-2 {{ post.year }}
-              span.text-h5.ml-2 {{ post.stageNo }}
-              span.text-h5.ml-2 {{ post.no }}
           v-list-item-title 
             nuxt-link(:to='`/posts/${post.id}`')
             h1.text-h4.text-h1.el_ellipsis(

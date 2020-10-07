@@ -21,14 +21,17 @@ v-container.grey.lighten-4
 
         v-list-item-content.ml-4
           v-list-item-title
-            nuxt-link(:to='`/posts/${post.id}`') {{ post.title }}
+            nuxt-link(:to='`/posts/${post.id}`') 
           v-list-item-subtitle 
-            h2.text-h5 {{ post.stages.stageNo }}
+            h2.text-h4 {{ post.stages.stageNo }}
+              span.text-h4.ml-1 No.
+              span.text-h4 {{ post.postNo }}
+              span.text-h5.ml-1 {{ post.stages.year }}
           v-list-item-title 
             nuxt-link(:to='`/posts/${post.id}`')
-            h1.text-h4.text-h1.el_ellipsis(
-              :class='`headline font-weight-light mb-4 `'
-            ) {{ post.title }}
+              h1.text-h4.text-h1.el_ellipsis(
+                :class='`headline font-weight-light mb-4 `'
+              ) {{ post.title }}
             v-list-action-text.d-flex 
               span(v-for='postTag in post.tags', :key='postTag.id')
                 nuxt-link(:to='`/tags/${postTag.id}`')

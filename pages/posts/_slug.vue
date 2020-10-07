@@ -1,9 +1,6 @@
 <template lang="pug">
 //- v-container.blue-grey.darken-4(fluid)
 v-container.grey.darken-4(fluid)
-  //- section.sl-wraper.mb-4
-  //-   h1 TOURdeHDR3 Micro CMS POSTS
-  //-   h1 posts/_slug.vue
   //-   h3 param: {{ $route.params.slug }}
   section.ly_section_wrapper.mb-4.mt-8
     v-card.mx-auto(flat, max-width='600', dark) 
@@ -14,9 +11,12 @@ v-container.grey.darken-4(fluid)
         :alt='contents.title'
       ) 
       v-card-title
-        span {{ contents.stages.title }}
+        h3.text-h3 {{ contents.stages.title }}
       v-card-subtitle 
-        span {{ contents.stages.stageNo }}
+        h5.text-h5 {{ contents.stages.stageNo }}
+          span.text-h5.ml-1 No.
+          span.text-h5 {{ contents.postNo }}
+          span.text-h6.ml-1 {{ contents.stages.year }}
       v-card-text.d-flex 
         nuxt-link(:to='`/locations/${contents.locations.id}`')
           span.mr-4 {{ contents.locations.locations }}
@@ -24,29 +24,10 @@ v-container.grey.darken-4(fluid)
           nuxt-link(:to='`/tags/${tag.id}`')
             span.mr-4 {{ tag.tags }}
       v-card-text
-        span {{ contents.body }}
+        p {{ contents.body }}
       v-card-text.text-right
-        span {{ contents.users.name }}
-    //- .mt-4
-    //-   h3 
-    //-     span {{ contents.stages.stageNo }}
-    //-   h1
-    //-     span {{ contents.stages.title }}
+        h5 {{ contents.users.name }}
 
-    //-   div 
-    //-     span.mr-2 場所：
-    //-     span {{ contents.locations.locations }}
-    //-   div 
-    //-     span.mr-2 Tags:
-    //-     span(v-for='tag in contents.tags', :key='tag.id')
-    //-       span.d-inline-block.mr-2 {{ tag.tags }}
-    //-   h1 {{ contents.title }}
-    //-   h3 {{ contents.body }}
-    //-   h3 {{ contents.link }}
-    //-   img(:src='contents.image.url', width='300', height='200', alt='画像')
-    //-   h3 {{ contents.users.name }}
-    //- .mt-4 
-    //-   h5 {{ contents }}
     .mt-4(@click='$router.go(-1)') 
       h3.blue--text Back
 </template>
