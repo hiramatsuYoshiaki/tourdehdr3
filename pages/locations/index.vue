@@ -3,7 +3,7 @@ v-container.grey.lighten-4
   section.ly_content_wrapper.mb-4
     v-list.grey.lighten-4 
       v-subheader 
-        h1.text-h3 Location List
+        h1.text-h3 LOCATION LIST
       v-list-item.py-1(v-for='(location, i) in locations', :key='location.id') 
         v-list-item-title
           .d-flex
@@ -45,7 +45,7 @@ v-container.grey.lighten-4
                     span.text-h6.mr-4 {{ tag.tags }}
 
     .mt-4(@click='$router.go(-1)') 
-      h3.blue--text Back
+      h3.blue--text BACK
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex'

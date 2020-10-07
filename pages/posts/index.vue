@@ -3,7 +3,7 @@ v-container.grey.lighten-4
   section.ly_content_wrapper.mb-4
     v-list.grey.lighten-4 
       v-subheader 
-        h1.text-h3 Post List
+        h1.text-h3 POST LIST
       v-list-item.py-2.d-flex.align-start(
         v-for='(post, i) in posts',
         :key='post.id'
@@ -43,7 +43,7 @@ v-container.grey.lighten-4
 
   .mt-4 
     nuxt-link(to='/')
-      h3 Back
+      h3 BACK
 </template>
 <script>
 import { mapState } from 'vuex'

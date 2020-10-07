@@ -3,7 +3,7 @@ v-container.grey.lighten-4
   section.ly_content_wrapper.mb-4
     v-list.grey.lighten-4 
       v-subheader 
-        h1.text-h3 Location List
+        h1.text-h3 LOCATION LIST
       v-list-item(v-for='(tag, i) in tags', :key='tag.id', three-line)
         v-list-item-title
           .d-flex
@@ -43,7 +43,7 @@ v-container.grey.lighten-4
                   nuxt-link(:to='`/tags/${postTag.id}`')
                     span.text-h6.mr-4 {{ postTag.tags }}
   div(@click='$router.go(-1)')
-    h3.blue--text Back
+    h3.blue--text BACK
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex'

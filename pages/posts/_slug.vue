@@ -29,7 +29,7 @@ v-container.grey.darken-4(fluid)
         h5 {{ contents.users.name }}
 
     .mt-4(@click='$router.go(-1)') 
-      h3.blue--text Back
+      h3.blue--text BACK
 </template>
 <script>
 // import axios from 'axios'

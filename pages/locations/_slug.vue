@@ -39,7 +39,7 @@ v-container.grey.lighten-4
 
   .mt-4
     div(@click='$router.go(-1)')
-    h3.blue--text Back
+    h3.blue--text BACK
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex'
