@@ -32,6 +32,9 @@ v-container.grey.lighten-5
         .py-1
           h2.text-h4(:class='`headline font-weight-light mb-4 `') {{ post.stages.stageNo }}
             span.text-h5.ml-1 {{ post.stages.year }}
+            span.text-h5.ml-1 {{ post.year }}
+            span.text-h5.ml-1 {{ post.stageNo }}
+            span.text-h5.ml-1 {{ post.no }}
           nuxt-link(:to='`/posts/${post.id}`')
             h1.text-h3(:class='`headline font-weight-light mb-4 `') {{ post.title }}
           v-card(flat, max-width='600')

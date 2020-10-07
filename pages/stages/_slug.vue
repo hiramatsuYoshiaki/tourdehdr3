@@ -26,6 +26,9 @@ v-container.grey.lighten-4
             nuxt-link(:to='`/posts/${post.id}`') {{ post.title }}
           v-list-item-subtitle 
             h2.text-h5 {{ post.stages.stageNo }}
+              span.text-h5.ml-2 {{ post.year }}
+              span.text-h5.ml-2 {{ post.stageNo }}
+              span.text-h5.ml-2 {{ post.no }}
           v-list-item-title 
             nuxt-link(:to='`/posts/${post.id}`')
             h1.text-h4.text-h1.el_ellipsis(

@@ -10,6 +10,7 @@ v-container.grey.lighten-4
           span.text-h3.mr-2 {{ stage.year }}
           span.text-h3.mr-2 {{ stage.stageNo }}
           span.text-h5.mr-2 {{ stage.title }}
+          span.text-h5.mr-2 {{ stage.sort }}
   .mt-4 
     nuxt-link(to='/')
       h3 Home
