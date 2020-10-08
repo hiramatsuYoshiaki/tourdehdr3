@@ -40,7 +40,7 @@ v-container.grey.lighten-4
                   span.text-h6.mr-4 {{ postTag.tags }}
 
   .mt-4(@click='$router.go(-1)') 
-    h3.blue--text Back
+    h3.blue--text BACK
 
 //-   .mt-4 
 //-     h1 stage/slug.vue
