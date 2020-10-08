@@ -1,7 +1,6 @@
-# micro-cms-test
+# tourdehdr3
 
-![Uploading tourdehdt3-microcms.gif…]()
-https://user-images.githubusercontent.com/20366817/95415730-0b8f7100-096c-11eb-8c34-4a55099474f0.gif
+![tourdehdt3-microcms](https://user-images.githubusercontent.com/20366817/95415730-0b8f7100-096c-11eb-8c34-4a55099474f0.gif)
 
 ## OVERVIEW 　
 
@@ -11,12 +10,16 @@ MicriCNS から API を取得して Nuxt.js で記事一覧を表示する。
 
 github repository: tourdehdr3
 
-Host Netlify
+## Netlify
+
 Site: tourdehdr3 URL: https://tourdehd3-insta.netlify.app
 
-MicroCMS
+## MicroCMS
+
 サービス名: h-works
 コンテンツ: ユーザー　ブログ　カテゴリー（ステージ）　ロケーション　タグ　アース
+
+## instal
 
 ```
 $ npx create-nuxt-app micro-cms-test
